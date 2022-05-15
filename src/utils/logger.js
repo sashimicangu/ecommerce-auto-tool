@@ -10,11 +10,11 @@ const TYPE = {
 };
 
 const log = async (msg, path, type) => {
-  if (type == TYPE.ERR) console.log(chalk.red(msg));
-  else console.log(chalk.hex('#f5ad4e')(msg));
-
   const msgTime = moment().format('YYYY/MM/D HH:mm:ss');
   const msgLog = `[${msgTime}]: ${msg}`;
+
+  if (type == TYPE.ERR) console.log(chalk.red(msg));
+  else console.log(chalk.hex('#f5ad4e')(msgLog));
 
   try {
     let logRows = (await fs.readFile(path)).toString().split('\n');

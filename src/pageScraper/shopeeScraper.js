@@ -225,6 +225,7 @@ const scraperObject = {
 
     await payment(page);
 
+    await page.waitForTimeout(20000);
     await browser.close();
   },
 };
