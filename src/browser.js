@@ -13,7 +13,7 @@ const startBrowser = async () => {
 
   try {
     logMsg('Opening the browser...');
-    browser = await puppeteer.launch({ headless: false });
+    browser = await puppeteer.launch({ headless: true });
   } catch (err) {}
 
   return browser;
