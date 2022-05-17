@@ -1,5 +1,6 @@
 const { logMsg } = require('../utils/logger');
 const { Input, Select, Form, Confirm } = require('enquirer');
+const moment = require('moment');
 const { capture } = require('../utils/puppeteerUtils');
 
 const login = async (page, url) => {
@@ -166,7 +167,8 @@ const payment = async (page) => {
     document.querySelector('.stardust-button.stardust-button--primary').click();
   });
 
-  let orderStatusImgName = 'order' + new Date().toISOString() + '.jpg';
+  let orderStatusImgName =
+    'order' + moment().format('HH.mm.ss_D.MM.YY').toString() + '.jpg';
   await capture(page, orderStatusImgName);
 };
 

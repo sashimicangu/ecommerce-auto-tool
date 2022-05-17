@@ -36,6 +36,12 @@ const moment = require('moment');
     }
   }
 
+  // check res folder
+  let resDirPath = path.join(cwd, 'res');
+  if (!fs.existsSync(resDirPath)) {
+    fs.mkdirSync(resDirPath);
+  }
+
   logMsg('Preparing to run the script...');
   await delay(500);
   await script();
