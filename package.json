@@ -4,11 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_PATH=. node src/script.js"
+    "start": "node src/preRun.js"
   },
   "dependencies": {
-    "ascii-art": "^2.8.5",
     "chalk": "4.1.2",
+    "cli-box": "^6.0.10",
     "enquirer": "^2.3.6",
     "moment": "^2.29.3",
     "puppeteer": "^14.1.0",

@@ -1,8 +1,20 @@
-const art = require('ascii-art');
 const { SCRIPT_NAME } = require('../config');
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
+const { logConsole, boxText } = require('./logger');
 
-const genScriptName = () => {
-  return art.font(SCRIPT_NAME, 'rusted').completed();
+const execCommand = async (cmd) => {
+  try {
+    await exec(cmd);
+  } catch (e) {
+    console.error(e);
+  }
 };
 
-module.exports = { genScriptName };
+const genScriptName = () => {
+  logConsole('#d1eded')(boxText(SCRIPT_NAME.toUpperCase(), 26, 5));
+};
+
+const delay = (ms) => new Promise((res, _) => setTimeout(() => res(), ms));
+
+module.exports = { genScriptName, execCommand, delay };
