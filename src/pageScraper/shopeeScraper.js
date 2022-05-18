@@ -155,7 +155,8 @@ const payment = async (page) => {
     waitUntil: 'networkidle0',
   });
 
-  await page.waitForSelector('.checkout-payment-setting__payment-methods-tab');
+  await page.waitForTimeout(500);
+  await page.waitForSelector('.checkout-payment-method-view__current.checkout-payment-setting');
   await page.evaluate((_) => {
     document
       .querySelector('.checkout-payment-setting__payment-methods-tab')
