@@ -8,8 +8,8 @@ const login = async (page, url) => {
     name: 'auth',
     message: `Login to ${url}`,
     choices: [
-      { name: 'user', message: 'Username', initial: '' },
-      { name: 'pass', message: 'Password', initial: '' },
+      { name: 'user', message: 'Username', initial: '0975105363' },
+      { name: 'pass', message: 'Password', initial: 'Lng1234569@' },
     ],
   }).run();
 
@@ -163,6 +163,7 @@ const payment = async (page) => {
       .lastChild.children[0].click();
   });
 
+  await page.waitForTimeout(250);
   await page.waitForSelector('.loading-spinner-popup', { hidden: true });
   await page.evaluate((_) => {
     document.querySelector('.stardust-button.stardust-button--primary').click();
