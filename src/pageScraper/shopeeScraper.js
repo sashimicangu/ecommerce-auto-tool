@@ -169,6 +169,10 @@ const payment = async (page) => {
     document.querySelector('.stardust-button.stardust-button--primary').click();
   });
 
+  await page.waitForTimeout(2000);
+  await page.waitForNavigation({
+    waitUntil: 'networkidle0',
+  });
   let orderStatusImgName =
     'order' + moment().format('HH.mm.ss_D.MM.YY').toString() + '.jpg';
   await capture(page, orderStatusImgName);
