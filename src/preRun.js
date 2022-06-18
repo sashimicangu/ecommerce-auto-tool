@@ -9,7 +9,7 @@ const moment = require('moment');
   genScriptName();
 
   process.env.SESSION_VER =
-    'v' + moment().format('HH.mm.ss_D.MM.YY').toString();
+    'v' + moment().format('HH.mm.ss_DD.MM.YY').toString();
   const cwd = process.cwd();
   process.env.NODE_PATH = process.cwd();
 
